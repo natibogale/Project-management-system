@@ -1,0 +1,122 @@
+{% extends 'base/head.html'%}
+{% load static %}
+ {% block content %}
+<div class="wrapper sidebar_minimize">
+{% include "leadEngineer/nav.html" %}
+{% include "leadEngineer/sidebar.html" %}
+
+		<div class="main-panel">
+			<div class="content">
+
+ <div class="page-inner">
+    <div class="page-header">
+        <h4 class="page-title">{{ user.directorate }}'s Projects</h4>&nbsp&nbsp&nbsp
+
+    </div>
+
+
+
+    <style>
+
+      td{
+        word-break: break-all;
+      }
+      table.table-bordered{
+          border:3px solid gray;
+          margin-top:20px;
+        }
+        table.table-bordered > tbody > tr > td{
+          border:3px solid gray;
+      }
+      </style>
+
+                                        <table id="example" class="display">
+                                            <thead>
+                                                <tr>
+                                                    <th>Project Name</th>
+                                                    <th>Contractor</th>
+                                                    <th>Consultant</th>
+                                                    <th>Contract Type</th>
+                                                    <th>Region</th>
+                                                    <th>Zone</th>
+                                                    <th>Woreda</th>
+                                                    <th>Assigned to Team</th>
+                                                    <th>Date Added</th>
+
+                                                    <th>Manage</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for list in projects %}
+                                                <tr>
+                                                  <td><a href="{% url 'le-projects-details' list.id %} "> {{ list.projectName }}</a></td>
+                                                  <td><a>{{ list.contractorName }}</a></td>
+                                                    <td>{{ list.consultantName }}</td>
+                                                    <td>{{ list.contractType }}</td>
+                                                    <td>{{ list.location_region }}</td>
+                                                    <td>{{ list.location_zone }}</td>
+                                                    <td>{{ list.location_woreda }}</td>
+                                                    <td>{{ list.assignedTo }}</td>
+                                                    <td>{{ list.dateAdded }}</td>
+
+                                                    <td>  <a href="{% url 'le-projects-update' list.id %}"> <img src="{% static 'edit.png' %}" width="30" /> </a>
+                                                       </td>
+
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                 </div>
+
+
+
+
+
+
+
+            </div>
+		{% include "base/foot.html" %}
+		</div>
+
+	</div>
+	<!--   Core JS Files   -->
+
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="form_id" action="">
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Delete Permanently</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+
+      $('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('whatever')
+    var name = button.data('name')
+    // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    document.getElementById("form_id").action = "/director/projects/"+ id +"/delete";
+    modal.find('.modal-title').text('Are you sure you want to delete project  " ' + name+ ' " permanently? ')
+  })
+  </script>
+
+ {% endblock content %}

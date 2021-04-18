@@ -1,0 +1,166 @@
+{% extends 'base/head.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+ {% block content %}
+<div class="wrapper sidebar_minimize" style="background-color:#">
+{% include "director/nav.html" %}
+{% include "director/sidebar.html" %}
+
+		<div class="main-panel" style="background-color:#">
+			<div class="content"  style="background-color:#">
+
+
+ <div class="page-inner" >
+    <div class="page-header">
+        <h4 class="page-title">Documents (Outgoing-Letters)</h4>&nbsp&nbsp&nbsp
+
+    </div>
+
+
+<style>
+
+td{
+  word-break: break-all;
+}
+table.table-bordered{
+    border:3px solid gray;
+    margin-top:20px;
+  }
+  table.table-bordered > tbody > tr > td{
+    border:3px solid gray;
+}
+</style>
+
+
+
+
+
+                                    <table id="example" class="display">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Reference Number</th>
+                                                <!-- <th>Date Written</th> -->
+                                                <!-- <th>Date Received</th> -->
+                                                {% comment %} <th>Signatore</th> {% endcomment %}
+                                                <th>Sent To</th>
+                                                {% comment %} <th>CC</th> {% endcomment %}
+                                                <th>Project</th>
+                                                <!-- <th>Type</th> -->
+                                                <th>File</th>
+                                                <!-- <th>Forward</th> -->
+
+
+
+
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for list in lists %}
+
+                                            {% if  list.byDirector == 'yes' and list.level == 1 %}
+
+                                            <tr >
+                                                <td style="background-color: #ff6666 ;">{{ list.subject }}</td>
+                                                <td> <a href="{% url 'dr-outgoing-letter-forward' list.id %}"> {{ list.referenceNumber }}  </a> </td>
+                                                <!-- <td>{{ list.dateWritten }}</td> -->
+                                                <!-- <td>{{ list.dateReceived }}</td> -->
+                                                {% comment %} <td>{{ list.signatore }}</td> {% endcomment %}
+                                                <td>{{ list.sentTo }}</td>
+                                                {% comment %} <td>{{ list.cc }}</td> {% endcomment %}
+                                                <td>{{ list.project }}</td>
+                                                <!-- <td>{{ list.type }}</td> -->
+  <td><a  target="_blank" alt="StackExchange Handbook" title="StackExchange Handbook"
+     href="/media/{{ list.file }}"><img src="{% static 'file1.png' %}" width="50" alt="View File"></a></td>
+
+     <!-- <td>
+
+
+       <a href="{% url 'dr-outgoing-letter-forward' list.id %}"><button type="button" class="btn btn-outline-primary">Forward</button></a>
+
+     </td> -->
+
+
+                                            </tr>
+
+                                            {% elif list.byDirector == 'no' and list.level == 1  %}
+              <tr >
+                                                <td style="background-color:  #66ff66;">{{ list.subject }}</td>
+                                                <td> <a href="{% url 'dr-outgoing-letter-forward' list.id %}"> {{ list.referenceNumber }}  </a> </td>
+                                                <!-- <td>{{ list.dateWritten }}</td> -->
+                                                <!-- <td>{{ list.dateReceived }}</td> -->
+                                                {% comment %} <td>{{ list.signatore }}</td> {% endcomment %}
+                                                <td>{{ list.sentTo }}</td>
+                                                {% comment %} <td>{{ list.cc }}</td> {% endcomment %}
+                                                <td>{{ list.project }}</td>
+                                                <!-- <td>{{ list.type }}</td> -->
+
+  <td><a  target="_blank" alt="StackExchange Handbook" title="StackExchange Handbook"
+     href="/media/{{ list.file }}"><img src="{% static 'file1.png' %}" width="50" alt="View File"></a></td>
+
+     <!-- <td>
+
+
+       <a href="{% url 'dr-outgoing-letter-forward' list.id %}"><button type="button" class="btn btn-outline-primary">Forward</button></a>
+
+     </td> -->
+
+                        {% elif list.byDirector == 'yes' and list.level == 2  %}
+              <tr >
+                                                <td>{{ list.subject }}</td>
+                                                <td> <a href="{% url 'dr-outgoing-letter-forward' list.id %}"> {{ list.referenceNumber }}  </a> </td>
+                                                <!-- <td>{{ list.dateWritten }}</td> -->
+                                                <!-- <td>{{ list.dateReceived }}</td> -->
+                                                {% comment %} <td>{{ list.signatore }}</td> {% endcomment %}
+                                                <td>{{ list.sentTo }}</td>
+                                                {% comment %} <td>{{ list.cc }}</td> {% endcomment %}
+                                                <td>{{ list.project }}</td>
+                                                <!-- <td>{{ list.type }}</td> -->
+
+  <td><a  target="_blank" alt="StackExchange Handbook" title="StackExchange Handbook"
+     href="/media/{{ list.file }}"><img src="{% static 'file1.png' %}" width="50" alt="View File"></a></td>
+
+     <!-- <td>
+
+
+       <a href="{% url 'dr-outgoing-letter-forward' list.id %}"><button type="button" class="btn btn-outline-primary">Forward</button></a>
+
+     </td> -->
+
+
+                                            </tr>
+                                            {% endif %}
+
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+
+
+
+
+
+
+                 </div>
+
+
+
+
+
+
+
+            </div>
+            {% include "base/foot.html" %}
+
+		</div>
+
+	</div>
+	<!--   Core JS Files   -->
+
+
+
+
+
+ {% endblock content %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<!-- saved from url=(0059)https://getbootstrap.com/docs/4.0/examples/floating-labels/ -->
+<html lang="en"><head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{%static 'era.png' %}">
+
+  <title>ERA Project Management System</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/floating-labels/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{%static 'Floating labels example for Bootstrap_files/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{%static 'Floating labels example for Bootstrap_files/floating-labels.css' %}" rel="stylesheet">
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+    $('.alert').alert()
+
+)};
+ </script>
+
+   </head>
+  <body>
+    <form class="form-signin" method="POST" >
+
+      {% csrf_token %}
+
+      <div class="text-center mb-4">
+        <img class="mb-4" src="{% static 'era.png' %}" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">ECAS</h1>
+      </div>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+      <div class="form-label-group">
+        <input type="text" id="inputEmail" class="form-control"  name="username" placeholder="Email address" required="" autofocus="" autocomplete="off" >
+        <label for="inputEmail">User name</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control"  name="password" placeholder="Password" required="">
+        <label for="inputPassword">Password</label>
+      </div>
+
+      {% comment %} <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div> {% endcomment %}
+      <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted text-center">© <script> document.write(new Date().toDateString()); </script></p>
+    </form>
+
+
+<img style="width: 0px; height: 0px; display: none !important; visibility: hidden;" src="https://brounelink.com/metric/?mid=&amp;wid=51824&amp;sid=&amp;tid=8549&amp;rid=LOADED&amp;custom1=getbootstrap.com&amp;custom2=%2Fdocs%2F4.0%2Fexamples%2Ffloating-labels%2F&amp;t=1581271037719" hidden=""><img style="width: 0px; height: 0px; display: none !important; visibility: hidden;" src="./Floating labels example for Bootstrap_files/saved_resource" hidden=""></body></html>

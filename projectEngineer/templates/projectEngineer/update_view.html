@@ -1,0 +1,67 @@
+{% extends 'base/head.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+
+ {% block content %}
+<div class="wrapper sidebar_minimize">
+{% include "projectEngineer/nav.html" %}
+{% include "projectEngineer/sidebar.html" %}
+{% include "base/date.html" %}
+
+		<div class="main-panel">
+			<div class="content" style="background-color:#cdd0d2;">
+
+
+<div class="page-inner">
+	<div class="page-header">
+		<h4 class="page-title"> Update --{{ name }}--</h4>
+
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+
+				<div class="card-body">
+{% if name == user %}
+<div class="avatar avatar-xxl">
+											<img src="{{ user.profilePicture.url }}" alt="..." class="avatar-img rounded-circle">
+										</div>
+{% endif %}
+				     <form method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+
+                            {{form|crispy}}
+                            <input type="submit" class=" mr-auto btn btn-outline-success" name="submit"
+							value="Update">
+
+
+                    </form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+
+            </div>
+		{% include "base/foot.html" %}
+		</div>
+
+	</div>
+	<!--   Core JS Files   -->
+
+
+ {% endblock content %}

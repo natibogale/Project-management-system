@@ -1,0 +1,28 @@
+         <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Date Written</th>
+                                                <th>Signatore</th>
+                                                <th>Sent To</th>
+                                                <th>CC</th>
+                                                <th>Project</th>
+                                                <th>File</th>
+                                                <th>Seen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                {% for list in memos %}
+                                                <tr>
+                                                    <td>{{ list.subject }}</td>
+                                                    <td>{{ list.dateWritten }}</td>
+                                                    <td>{{ list.signatore }}</td>
+                                                    <td>{{ list.sentTo }}</td>
+                                                    <td>{{ list.cc }}</td>
+                                                    <td>{{ list.project }}</td>
+                                                    <td><a  target="_blank" alt="StackExchange Handbook" title="StackExchange Handbook"
+     href="/media/{{ list.file }}">View File</a></td>
+                                                    <td>{{ list.seen }}</td>
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                 

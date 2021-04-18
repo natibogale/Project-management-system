@@ -1,0 +1,80 @@
+{% extends 'base/head.html'%}
+{% load static %}
+ {% block content %}
+<div class="wrapper sidebar_minimize">
+{% include "humanResources/nav.html" %}
+{% include "humanResources/sidebar.html" %}
+
+		<div class="main-panel">
+			<div class="content">
+
+            <div class="page-inner">
+    <div class="page-header">
+        <h4 class="page-title">View Employees List</h4>&nbsp&nbsp&nbsp
+        <a href="{% url 'register-employees' %}"><button type="button" class="btn btn-outline-primary">Register New Employees</button></a>
+
+
+    </div>
+
+
+                                    <table id="example" class="display">
+                                        <thead>
+                                            <tr>
+                                                <th>Profile Pictures</th>
+                                                <th>Badge Number</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Phone Number</th>
+                                                <th>Directorate</th>
+                                                <th>Title</th>
+                                                <th>Team</th>
+                                                <th>Registered On</th>
+                                                <th>Manage</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for list in users %}
+                                            <tr>
+                                                <td> <img src="{{ list.profilePicture.url }}" width="100" /> </td>
+                                                <td>  {{ list.username }} </td>
+                                                <td><a>{{ list.firstName }}</a></td>
+                                                <td>{{ list.middleName }}</td>
+                                                <td>{{ list.lastName }}</td>
+                                                <td>{{ list.email }}</td>
+                                                <td>{{ list.phoneNumber }}</td>
+                                                <td>{{ list.directorate }}</td>
+                                                <td>{{ list.title }}</td>
+                                                <td>{{ list.team }}</td>
+                                                <td><a></a>{{ list.date_joined }} </td>
+                                                <td>  <a href="{% url 'update-employees' list.id %}"> <img src="{% static 'edit.png' %}" width="30" /> </a>  <a href="{% url 'update-employees' list.id %}"> <img src="{% static 'delete.png' %}" width="30" /> </a> </td>
+
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+            </div>
+		{% include "base/foot.html" %}
+		</div>
+
+	</div>
+	<!--   Core JS Files   -->
+
+
+ {% endblock content %}

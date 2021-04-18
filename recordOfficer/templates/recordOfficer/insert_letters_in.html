@@ -1,0 +1,69 @@
+{% extends 'base/head.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+ {% block content %}
+<div class="wrapper sidebar_minimize">
+{% include "recordOfficer/nav.html" %}
+{% include "recordOfficer/sidebar.html" %}
+{% include "base/date.html" %}
+
+{{ form.media }}
+		<div class="main-panel">
+			<div class="content" style="background-color:#cdd0d2;">
+
+<div class="page-inner">
+	<div class="page-header">
+		<h4 class="page-title">Documents (Incoming)</h4>&nbsp&nbsp&nbsp
+    <a href="{% url 'view-letter-list' %}"><button type="button" class="btn btn-outline-primary">Incoming Letters</button></a>
+
+
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-title">Insert Incoming Letters for Projects here!</div>
+				</div>
+				<div class="card-body">
+
+					<form method="POST" enctype="multipart/form-data" novalidate>
+
+						{% csrf_token %}
+
+
+						{{ form|crispy }}
+
+
+						<input type="submit" class=" mr-auto btn btn-outline-success" name="submit"
+							value="Insert Document">
+
+
+
+
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+
+            </div>
+		{% include "base/foot.html" %}
+		</div>
+
+	</div>
+	<!--   Core JS Files   -->
+
+
+ {% endblock content %}

@@ -1,0 +1,179 @@
+{% extends 'base/head.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
+
+ {% block content %}
+<div class="wrapper sidebar_minimize">
+{% include "recordOfficer/nav.html" %}
+{% include "recordOfficer/sidebar.html" %}
+<!-- {% include "base/date.html" %} -->
+
+
+		<div class="main-panel">
+			<div class="content">
+
+
+<div class="page-inner">
+	<div class="page-header">
+		<h4 class="page-title">Documents (Incoming-Letters)</h4>&nbsp&nbsp&nbsp
+    <a href="{% url 'insert-letters-in' %}"><button type="button" class="btn btn-outline-primary">Insert Incoming</button></a>
+	</div>
+
+
+
+
+
+
+
+
+                                    <table id="example" class="display">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Reference Number</th>
+                                                <th>Date Written</th>
+                                                <th>Date Received</th>
+                                                <th>Signatore</th>
+                                                <th>Received From</th>
+                                                <th>CC</th>
+                                                <th>Project</th>
+                                                <th>Type</th>
+                                                <th>File</th>
+                                                <th>Manage</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for list in lists %}
+
+                                            {% if  list.seen == 'false' and list.forwardedTo == 'Director' %}
+
+                                            <tr >
+                                                <td style="background-color: #ff6666 ;">{{ list.subject }}</td>
+                                                <td>{{ list.referenceNumber }}</td>
+                                                <td>{{ list.dateWritten }}</td>
+                                                <td>{{ list.dateReceived }}</td>
+                                                <td>{{ list.signatore }}</td>
+                                                <td>{{ list.receivedFrom }}</td>
+                                                <td>{{ list.cc }}</td>
+                                                <td>{{ list.project }}</td>
+                                                <td>{{ list.type }}</td>
+  <td><a  target="_blank" alt="StackExchange Handbook" title="StackExchange Handbook"
+     href="/media/{{ list.file }}"><img src="{% static 'file1.png' %}" width="30" alt="View File"></a></td>
+
+                                                <td>  <a href="{% url 'letter-update-1' list.id %}"> <img src="{% static 'edit.png' %}" width="30" /> </a>
+<img src="{% static 'delete.png' %}" width="30" data-toggle="modal" data-target="#exampleModal" data-whatever="{{ list.id }}" data-name="{{ list.referenceNumber }}"></td>
+
+                                            </tr>
+
+                                            {% else %}
+              <tr >
+                                                <td style="background-color:  #b9ffce;">{{ list.subject }}</td>
+                                                <td>{{ list.referenceNumber }}</td>
+                                                <td>{{ list.dateWritten }}</td>
+                                                <td>{{ list.dateReceived }}</td>
+                                                <td>{{ list.signatore }}</td>
+                                                <td>{{ list.receivedFrom }}</td>
+                                                <td>{{ list.cc }}</td>
+                                                <td>{{ list.project }}</td>
+                                                <td>{{ list.type }}</td>
+
+  <td><a  target="_blank" alt="StackExchange Handbook" title="StackExchange Handbook"
+     href="/media/{{ list.file }}">View File</a></td>
+
+                                                <td>  <a href="{% url 'letter-update-1' list.id %}"> <img src="{% static 'edit.png' %}" width="30" /> </a>
+
+
+<img src="{% static 'delete.png' %}" width="30" data-toggle="modal" data-target="#exampleModal" data-whatever="{{ list.id }}" data-name="{{ list.referenceNumber }}">
+</td>
+
+
+                                            </tr>
+                                            {% endif %}
+
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+		{% include "base/foot.html" %}
+		</div>
+
+	</div>
+	<!--   Core JS Files   -->
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="form_id" action="">
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Delete Permanently</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+
+    $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var id = button.data('whatever')
+  var name = button.data('name')
+  // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  document.getElementById("form_id").action = "/record-officer/incomingletters/"+ id +"/delete";
+  modal.find('.modal-title').text('Are you sure you want to delete letter  " ' + name+ ' " permanently ')
+})
+</script>
+
+
+
+
+ {% endblock content %}

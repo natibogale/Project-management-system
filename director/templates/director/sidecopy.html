@@ -1,0 +1,434 @@
+{% load static %}
+
+
+
+<!-- Sidebar -->
+<div class="sidebar sidebar-style-2">
+    <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+            <div class="user">
+                <div class="avatar-sm float-left mr-2">
+                    <div src="{{ user.profilePicture.url }}" alt="..." class="avatar-img rounded-circle">
+                    </div>
+                    <style media="screen">
+                        span {
+                            font-color: white;
+                        }
+                    </style>
+                    <div class="info" style="color:white" id="112">
+                        <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                            <span>
+                                {{ user.firstName }} &nbsp {{ user.middleName }}
+                                <span class="user-level">{{ user.title }}</span>
+                                <span class="caret"></span>
+                            </span>
+                        </a>
+                        <div class="clearfix"></div>
+
+                        <div class="collapse in" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="{% url 'dr-profile' user.id %}">
+                                        <span class="link-collapse">My Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'dr-update' user.id %}">
+                                        <span class="link-collapse">Edit Profile</span>
+                                    </a>
+                                </li>
+                                {% comment %} <li>
+                                    <a href="#settings">
+                                        <span class="link-collapse">Settings</span>
+                                    </a>
+                                </li> {% endcomment %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav nav-primary">
+
+                    <li class="nav-item">
+                        <a href="{% url 'director-home' %}" aria-expanded="false">
+                            <i class="fas fa-desktop"></i>
+                            <p>Incompany News Feed</p>
+                            {% comment %} <span class="badge badge-success">4</span> {% endcomment %}
+                        </a>
+                    </li>
+
+
+
+
+
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#base0">
+                            <i class="fas fa-list-alt"></i>
+                            <p>Records </p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="base0">
+                            <ul class="nav nav-collapse">
+
+                                <li class="nav-item">
+
+
+                                    <a data-toggle="collapse" href="#base11">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Incoming</p>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <div class="collapse" id="base11">
+                                        <ul class="nav nav-collapse">
+
+                                            <li class="nav-item">
+                                                <a href="{% url 'director-incoming-letter' %}" aria-expanded="false">
+                                                    <i class="fas fa-pen-square"></i>
+                                                    <p>Letters</p>
+                                                </a>
+
+                                            </li>
+
+
+                                            <li class="nav-item">
+                                                <a href="{% url 'director-incoming-memo' %}" aria-expanded="false">
+                                                    <i class="fas fa-pen-square"></i>
+                                                    <p>Memos</p>
+                                                </a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a data-toggle="collapse" href="#base12">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Outgoing</p>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <div class="collapse" id="base12">
+                                        <ul class="nav nav-collapse">
+
+                                            <li class="nav-item">
+                                                <a href="{% url 'director-outgoing-letter' %}" aria-expanded="false">
+                                                    <i class="fas fa-pen-square"></i>
+                                                    <p>Letters</p>
+                                                </a>
+
+                                            </li>
+
+
+                                            <li class="nav-item">
+                                                <a href="{% url 'director-outgoing-memo' %}" aria-expanded="false">
+                                                    <i class="fas fa-pen-square"></i>
+                                                    <p>Memos</p>
+                                                </a>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+
+
+
+
+
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#base13">
+                            <i class="fas fa-list-alt"></i>
+                            <p>Routine Works</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="base13">
+                            <ul class="nav nav-collapse">
+
+                                <li class="nav-item">
+                                    <a href="{% url 'hr-employees-list' %}" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Paper Works Tracking</p>
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <a>Meetings and <br> Other Schedules</p>
+                                        </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Deadlines Management</p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Routine Reports</p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Row Management</p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Claims/VOs</p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{% url 'dr-projects' %}" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Projects</p>
+                                    </a>
+
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Contract assigning <br> & performance <br> tracking</p>
+                                    </a>
+
+                                </li>
+
+                            </ul>
+                    </li>
+                    </li>
+
+
+
+
+
+
+
+
+
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#base">
+                            <i class="fas fa-list-alt"></i>
+                            <p>Human Resources</p>
+                            <span class="caret"></span>
+                        </a>
+                    <li class="collapse" id="base">
+                        <ul class="nav nav-collapse">
+
+                            <li class="nav-item">
+                                <a href="{% url 'hr-employees-list' %}" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>List and titles <br> of employees</p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Interns List</p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Rules and regulations</p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Job description</p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Attendance</p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Performance Apprisal</p>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Payroll & Perdime</p>
+                                </a>
+
+                            </li>
+                        </ul>
+                </ul>
+                </li>
+
+
+
+
+
+
+
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#base14">
+                        <i class="fas fa-list-alt"></i>
+                        <p>Information Management</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="base14">
+                        <ul class="nav nav-collapse">
+
+                            <ul class="nav-item">
+                                <li href="{% url 'hr-employees-list' %}" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>List and titles <br> of employees</p>
+                                    </p>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" aria-expanded="false">
+                                        <i class="fas fa-pen-square"></i>
+                                        <p>Interns List</p>
+                                    </a>
+
+                                </li>
+                            </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#base14">
+                        <i class="fas fa-list-alt"></i>
+                        <p>Financial Management</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="base14">
+                        <ul class="nav nav-collapse">
+
+                            <li class="nav-item">
+                                <a href="{% url 'hr-employees-list' %}" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>List and titles <br> of employees</p>
+                                </a>
+
+                                </a>
+                            <li class="nav-item">
+                                <a href="" aria-expanded="false">
+                                    <i class="fas fa-pen-square"></i>
+                                    <p>Interns List</p>
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#base14">
+                        <i class="fas fa-list-alt"></i>
+                        <p>Planning</p>
+                        <span class="caret"></span>
+                    </a>
+                <li class="collapse" id="base14">
+                    <div class="nav nav-collapse">
+
+                <li class="nav-item">
+                    <a href="{% url 'hr-employees-list' %}" aria-expanded="false">
+                        <i class="fas fa-pen-square"></i>
+                        <p>List and titles <br> of employees</p>
+                        </p>
+
+                </li>
+                <li class="nav-item">
+                    <a href="" aria-expanded="false">
+                        <i class="fas fa-pen-square"></i>
+                        <p>Interns List</p>
+                    </a>
+
+                </li>
+                </ul>
+            </div>
+            </li>
+
+            <div class="nav-item">
+                <a data-toggle="collapse" href="#base14">
+                    <i class="fas fa-list-alt"></i>
+                    <p> Inventory control</p>
+                    <span class="caret"></span>
+                </a>
+                <div class="collapse" id="base14">
+                    <ul class="nav nav-collapse">
+
+                        <li class="nav-item">
+                        <li href="{% url 'hr-employees-list' %}" aria-expanded="false">
+                            <i class="fas fa-pen-square"></i>
+                            <p>List and titles <br> of employees</p>
+                            </p>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="" aria-expanded="false">
+                                <i class="fas fa-pen-square"></i>
+                                <p>Interns List</p>
+                            </a>
+
+                        </li>
+
+                        <ul class="nav-item">
+                            <a data-toggle="collapse" href="#base14">
+                                <i class="fas fa-list-alt"></i>
+                                <p>Project Evaluation</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="base14">
+                                <ul class="nav nav-collapse">
+
+                                    <li class="nav-item">
+                                        <a href="{% url 'hr-employees-list' %}" aria-expanded="false">
+                                            <i class="fas fa-pen-square"></i>
+                                            <p>List and titles <br> of employees</p>
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="" aria-expanded="false">
+                                            <i class="fas fa-pen-square"></i>
+                                            <p>Interns List</p>
+                                        </a>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            </li>
+
+
+
+                        </ul>
+                </div>
+                </ul>
+                </ul>
+            </div>
+            </li>
+        </div>
+        <!-- End Sidebar -->

@@ -1,0 +1,159 @@
+
+
+
+
+
+
+
+
+
+
+
+
+projectName
+contractorName
+consultantName
+worksContractAmount_original
+worksContractAmount_revised
+contractType
+roadSurfaceType
+designStandard
+location_region
+location_zone
+location_woreda
+designControlPoints
+worksContractSigningDate
+worksContractCommencementDate
+worksContractCompletionDate_original
+worksContractCompletionDate_revised
+servicesContractSigningDate
+servicesContractAmount
+servicesContractCommencementDate
+servicesContractCompletionDate_original
+servicesContractCompletionDate_revised
+expectedProjectCompletionDate
+projectStartPoint_easting
+projectStartPoint_northing
+projectEndPoint_easting
+projectEndPoint_northing
+startPointDistancefromAA
+projectLength
+variationOrders_number
+variationOrders_amount
+variationOrders_approvalDate
+variationOrders_reason
+extentionOfTime_number
+extentionOfTime_amount
+extentionOfTime_approvalDate
+extentionOfTime_reason
+ERAPlanThisMonth_physical
+ERAPlanThisQuarter_physical
+ERAPlanThisFY_physical
+ERAPlanToDate_physical
+accomplishmentThisMonth_physical
+accomplishmentThisQuarter_physical
+accomplishmentThisFY_physical
+accomplishmentToDate_physical
+ERAPlanThisMonth_financial
+ERAPlanThisQuarter_financial
+ERAPlanThisFY_financial
+ERAPlanToDate_financial
+accomplishmentThisMonth_financial
+accomplishmentThisQuarter_financial
+accomplishmentThisFY_financial
+accomplishmentToDate_financial
+IPCPaymentThisFY
+IPCPaymentToDate
+budgetAllocated_FY
+environmentalSafetyAndOccupationalHealthManagementPlan
+qualityAssurancePlan
+approvedWorkProgram
+revisedWorkProgram
+financeSource_works
+financeSource_services
+majorProjectChallenges
+quantityChangeAmount
+escalationAmount
+interestForLatePayment
+legslationCost
+costClaim
+feeforDREService
+author
+directorate
+assignedTo
+dateAdded
+.
+
+
+
+
+
+'projectName',
+                    'contractorName',
+                    'consultantName',
+                    'worksContractAmount_original',
+                    'worksContractAmount_revised',
+                    'contractType',
+                    'roadSurfaceType',
+                    'designStandard',
+                    'location_region',
+                    'location_zone',
+                    'location_woreda',
+                    'designControlPoints',
+                    'worksContractSigningDate',
+                    'worksContractCommencementDate',
+                    'worksContractCompletionDate_original',
+                    'worksContractCompletionDate_revised',
+                    'servicesContractSigningDate',
+                    'servicesContractAmount',
+                    'servicesContractCommencementDate',
+                    'servicesContractCompletionDate_original',
+                    'servicesContractCompletionDate_revised',
+                    'expectedProjectCompletionDate',
+                    'projectStartPoint_easting',
+                    'projectStartPoint_northing',
+                    'projectEndPoint_easting',
+                    'projectEndPoint_northing',
+                    'startPointDistancefromAA',
+                    'projectLength',
+                    'variationOrders_number',
+                    'variationOrders_amount',
+                    'variationOrders_approvalDate',
+                    'variationOrders_reason',
+                    'extentionOfTime_number',
+                    'extentionOfTime_amount',
+                    'extentionOfTime_approvalDate',
+                    'extentionOfTime_reason',
+                    'ERAPlanThisMonth_physical',
+                    'ERAPlanThisQuarter_physical',
+                    'ERAPlanThisFY_physical',
+                    'ERAPlanToDate_physical',
+                    'accomplishmentThisMonth_physical',
+                    'accomplishmentThisQuarter_physical',
+                    'accomplishmentThisFY_physical',
+                    'accomplishmentToDate_physical',
+                    'ERAPlanThisMonth_financial',
+                    'ERAPlanThisQuarter_financial',
+                    'ERAPlanThisFY_financial',
+                    'ERAPlanToDate_financial',
+                    'accomplishmentThisMonth_financial',
+                    'accomplishmentThisQuarter_financial',
+                    'accomplishmentThisFY_financial',
+                    'accomplishmentToDate_financial',
+                    'IPCPaymentThisFY',
+                    'IPCPaymentToDate',
+                    'budgetAllocated_FY',
+                    'environmentalSafetyAndOccupationalHealthManagementPlan',
+                    'qualityAssurancePlan',
+                    'approvedWorkProgram',
+                    'revisedWorkProgram',
+                    'financeSource_works',
+                    'financeSource_services',
+                    'majorProjectChallenges',
+                    'quantityChangeAmount',
+                    'escalationAmount',
+                    'interestForLatePayment',
+                    'legslationCost',
+                    'costClaim',
+                    'feeforDREService',
+                    'assignedTo','directorate','author'

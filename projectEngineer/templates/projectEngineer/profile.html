@@ -1,0 +1,138 @@
+{% extends 'base/head.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{{ form.media }}
+
+ {% block content %}
+<div class="wrapper sidebar_minimize">
+{% include "projectEngineer/nav.html" %}
+{% include "projectEngineer/sidebar.html" %}
+{% include "base/date.html" %}
+
+		<div class="main-panel">
+			<div class="content">
+
+
+<div class="page-inner">
+	<div class="page-header">
+		<h4 class="page-title">My Profile</h4>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-body" id="elem">
+				<div class="avatar avatar-xxl">
+				<img src="{{ user.profilePicture.url }}" alt="..." class="avatar-img rounded-circle">
+				</div>
+				<div class="row">
+
+
+ <div class="form-group col-4" >
+    <label for="exampleFormControlInput1">First Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.firstName }}"disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Middle Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.middleName }}" disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Last Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.lastName }}"disabled>
+  </div>
+  </div>
+
+
+<div class="row">
+
+
+ <div class="form-group col-4" >
+    <label for="exampleFormControlInput1">Badge Number</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.username }}"disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Email</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.email }}" disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Phone Number</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.phoneNumber }}"disabled>
+  </div>
+  </div>
+
+
+
+  <div class="row">
+
+
+ <div class="form-group col-4" >
+    <label for="exampleFormControlInput1">Directorate</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.directorate }}"disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Team</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.team }}" disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.title }}"disabled>
+  </div>
+  </div>
+
+<div class="form-group col-4" >
+    <label for="exampleFormControlInput1">Emergency Contact</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.emergencyContactName }}"disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Emergency Contact Phone</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.emergencyContactPhone }}" disabled>
+  </div>
+   <div class="form-group col-4">
+    <label for="exampleFormControlInput1">Date Joined</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ user.date_joined }}"disabled>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+</div>
+
+
+
+
+            </div>
+		{% include "base/foot.html" %}
+		</div>
+
+	</div>
+	<!--   Core JS Files   -->
+
+
+
+
+
+
+ {% endblock content %}
