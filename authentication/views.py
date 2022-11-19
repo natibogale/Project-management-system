@@ -20,7 +20,6 @@ def home(request):
             username = request.POST['username']
             password = request.POST['password']
             user = authenticate(username=username , password=password)
-            print('sdfvfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
             if user and user.is_admin==False:
                 login(request, user)
                 valuenext= request.POST.get('next')

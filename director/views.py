@@ -79,6 +79,7 @@ def directorIncomingLetter(request):
         'projects' : projects,
         'teamleaders' : teamleaders,
     }
+    print('dddddddddddddddddddddddddddddddddddddd',context)
 
     return render(request, 'director/incoming_letters.html', context)
 

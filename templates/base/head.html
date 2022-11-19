@@ -1,0 +1,248 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>ERA Project Management System</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="{% static 'era.png' %}" type="image/x-icon" />
+	<link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css    ">
+
+	<script src="{% static 'bootstrap/jquery-3.4.1.min.js' %}" type="text/javascript"></script>
+	<!-- Fonts and icons -->
+	<script src="{% static 'js/gijgo.min.js' %}"></script>
+	<script src="{% static 'js\gijgo.min.js' %}" type="text/javascript"></script>
+
+	<link href="{% static 'css\gijgo.min.css' %}" rel="stylesheet" type="text/css" />
+
+	<script src="{% static 'assets/js/plugin/webfont/webfont.min.js' %}"></script>
+		
+	<script>
+		WebFont.load({
+			google: { "families": ["Lato:300,400,700,900"] },
+			custom: { "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['{% static "assets/css/fonts.min.css" %}'] },
+			active: function () {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
+
+
+
+
+<script>
+    var currFFZoom = 1;
+    var currIEZoom = 100;
+
+    $('#plusBtn').on('click',function(){
+        if ($.browser.mozilla){
+            var step = 0.02;
+            currFFZoom += step; 
+            $('body').css('MozTransform','scale(' + currFFZoom + ')');
+        } else {
+            var step = 2;
+            currIEZoom += step;
+            $('body').css('zoom', ' ' + currIEZoom + '%');
+        }
+    });
+
+    $('#minusBtn').on('click',function(){
+        if ($.browser.mozilla){
+            var step = 0.02;
+            currFFZoom -= step;                 
+            $('body').css('MozTransform','scale(' + currFFZoom + ')');
+
+        } else {
+            var step = 2;
+            currIEZoom -= step;
+            $('body').css('zoom', ' ' + currIEZoom + '%');
+        }
+    });
+    
+</script>
+
+{% if messages %}
+        {% for message in messages %}
+       <!--  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        </div> -->
+
+
+
+     <!--    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  {{ message }} <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+</div> -->
+
+
+<input type="text" name="" id="message" value= "{{ message }}" hidden>
+<input type="text" name="" id="message_tag" value= "{{ message.tags }}" hidden>
+<script type="text/javascript">
+var message = document.getElementById("message").value;
+var message_tag = document.getElementById("message_tag").value;
+$('#alert_demo_4').ready(function() {
+          swal(message, {
+            icon : message_tag,
+            buttons: {
+              confirm: {
+                className : 'btn btn-'+message_tag
+              }
+            },
+          });
+        });
+
+</script>
+
+        {% endfor %}
+        {% endif %}
+
+
+
+  	<script src="{% static 'assets/js/core/jquery.3.2.1.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+	<script src="{% static 'assets/js/core/bootstrap.min.js' %}"></script>
+
+	<script src="{% static 'assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js' %}"></script>
+
+	<script src="{% static 'assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'DataTabless/datatables.min.css' %}">
+<script src="{% static 'DataTabless/datatables.min.js' %}"></script>
+
+
+
+
+<script type="text/javascript" class="init">
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+      "order": [] ,
+        // scrollY: 500,
+		   {% comment %} scrollY: 320, {% endcomment %}
+        scrollX: true,
+        {% comment %} scrollCollapse: true, {% endcomment %}
+                // paging: false,
+
+
+        buttons: [
+            {
+                extend: 'print',
+                text: 'Print all',
+                exportOptions: {
+                    columns: ':visible',
+                    modifier: {
+                        selected: null,
+                    }
+                }
+            },
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis',
+            {
+                extend: 'print',
+                text: 'Print selected',
+                exportOptions: {
+                    columns: ':visible',
+                }
+            }
+        ],
+
+        select: true,
+    } );
+
+
+
+
+    $('#example_short').DataTable({
+        dom: 'Bfrtip',
+        "order": [] ,
+        scrollY: 320,
+scroller: true,
+        scrollCollapse: true,
+        buttons: [
+            {
+                extend: 'print',
+                text: 'Print all',
+                exportOptions: {
+                    columns: ':visible',
+                    modifier: {
+                        selected: null,
+                    }
+                }
+            },
+            {
+                extend: 'copyHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis',
+            {
+                extend: 'print',
+                text: 'Print selected',
+                exportOptions: {
+                    columns: ':visible',
+                }
+            }
+        ],
+
+        select: true,
+    });
+} );
+
+    </script>
+    
+	<link rel="stylesheet" href="{% static 'assets/css/atlantis.min.css' %}">
+
+</head>
+<body>
+
+<style>
+
+</style>
+{% block content %}
+
+{% endblock content %}
+
+
+
+
+</body>
+</html>

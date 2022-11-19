@@ -1,0 +1,159 @@
+{% extends 'base/head.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{{ form.media }}
+
+{% block content %}
+<div class="wrapper sidebar_minimize">
+  {% include "teamLeader/nav.html" %}
+  {% include "teamLeader/sidebar.html" %}
+  {% include "base/date.html" %}
+
+  <div class="main-panel">
+    <div class="content">
+
+
+
+      <div class="page-inner">
+        <div class="page-header">
+          <h4 class="page-title">Forward Messages on this Document
+          </h4>
+
+        </div>
+
+
+
+<style>
+table.table-bordered{
+    border:3px solid gray;
+    margin-top:20px;
+  }
+  table.table-bordered > tbody > tr {
+    border:3px solid gray;
+}
+
+
+</style>
+        <div class="card">
+          <div class="card-header">
+            {% comment %} Forward Messages on this Document {% endcomment %}
+          </div>
+          <div class="card-body">
+            {% comment %} <h5 class="card-title">Special title treatment</h5> {% endcomment %}
+            <form method="POST" enctype="multipart/form-data" novalidate>
+
+              {% csrf_token %}
+
+
+
+              {{form|crispy}}
+
+
+              <input type="submit" class=" mr-auto btn btn-outline-success" name="submit"
+                value="Forward to Lead Engineer">
+
+            </form>
+          </div>
+        </div>
+
+        {% if forwardList %}
+
+<h1>Director's Messages</h1>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Reference Number / Subject</th>
+              <th scope="col">Message Forwarded To</th>
+              <th scope="col">Message</th>
+              <th scope="col">Date Forwarded</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for list in forwardList %}
+
+            <tr>
+              {% if list.referenceNumber %}
+              <td style="word-break: break-all">{{ list.referenceNumber }}</td>
+
+              {% else %} 
+              <td style="word-break: break-all">{{ list.subject }}</td>
+
+              {% endif %} 
+              <td style="word-break: break-all">{{ list.messageTo }}</td>
+              <td style="word-break: break-all">{{ list.message }}</td>
+              <td style="word-break: break-all">{{ list.dateSent }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+          </tbody>
+        </table>
+
+        {%endif %}
+
+
+        {% if tlforwardList %}
+
+        <h1>Team Leader's Messages</h1>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Reference Number / Subject</th>
+                      <th scope="col">Message Forwarded To</th>
+                      <th scope="col">Message</th>
+                      <th scope="col">Date Forwarded</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for list in tlforwardList %}
+        
+                    <tr>
+                      {% if list.referenceNumber %}
+                      <td style="word-break: break-all">{{ list.referenceNumber }}</td>
+        
+                      {% else %} 
+                      <td style="word-break: break-all">{{ list.subject }}</td>
+        
+                      {% endif %} 
+                      <td style="word-break: break-all">{{ list.messageTo }}</td>
+                      <td style="word-break: break-all">{{ list.message }}</td>
+                      <td style="word-break: break-all">{{ list.dateSent }}</td>
+        
+                    </tr>
+        
+                    {% endfor %}
+        
+                  </tbody>
+                </table>
+        
+                {%endif %}
+
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+  {% include "base/foot.html" %}
+</div>
+
+</div>
+<!--   Core JS Files   -->
+
+
+
+
+
+
+{% endblock content %}

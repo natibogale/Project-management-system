@@ -113,7 +113,7 @@ class Manager(BaseUserManager):
 class User(AbstractBaseUser):
     username = models.CharField(max_length=500, verbose_name="Badge Number", unique=True )
     firstName = models.CharField(max_length=500, verbose_name="First Name", blank=True)
-    middleName = models.CharField(max_length=500, verbose_name="Middel Name", blank=True)
+    middleName = models.CharField(max_length=500, verbose_name="Middle Name", blank=True)
     lastName = models.CharField(max_length=500, verbose_name="Last Name", blank=True)
     gender =  models.CharField(choices=gender,   max_length=100, verbose_name="Gender", blank=True, default='Male')
     email = models.CharField(max_length=500, verbose_name="Email", unique=True)

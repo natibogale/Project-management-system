@@ -15,7 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates" )
+
 BOOTSTRAP4 = {
     'include_jquery': True,
 }
@@ -27,9 +29,9 @@ BOOTSTRAP4 = {
 SECRET_KEY = '*^4^oh^vr*9iym#z9ru8o*#b2i%u4(f9cwtnvgvsm$ki%4hv35'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.5','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 
@@ -154,24 +156,34 @@ AUTH_USER_MODEL = 'authentication.User'
 
 
 # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-print(BASE_DIR)
+# print(BASE_DIR)
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [
 #  os.path.join(BASE_DIR, '/static/')
 # ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'assets/')
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'static/bootstrap'),
-    ]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+#     os.path.join(BASE_DIR, 'static/bootstrap'),
+#     ]
+
+STATIC_ROOT = 'assets'
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+)
+
 
 LOGIN_URL ='home'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/' )
 
